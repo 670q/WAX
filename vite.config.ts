@@ -93,6 +93,26 @@ export default defineConfig((config) => {
     },
     build: {
       target: 'esnext',
+      sourcemap: false,
+      chunkSizeWarningLimit: 1000,
+      rollupOptions: {
+        output: {
+          manualChunks(id) {
+            if (id.includes('node_modules')) {
+              if (id.includes('@codemirror')) {
+                return 'vendor-codemirror';
+              }
+              if (id.includes('@radix-ui')) {
+                return 'vendor-radix';
+              }
+              if (id.includes('@ai-sdk') || id.includes('ai/')) {
+                return 'vendor-ai';
+              }
+              return 'vendor';
+            }
+          },
+        },
+      },
     },
     plugins: [
       nodePolyfills({
