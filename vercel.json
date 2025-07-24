@@ -5,7 +5,7 @@
   "installCommand": "pnpm install",
   "framework": "remix",
   "functions": {
-    "app/routes/api.*.ts": {
+    "api/index.js": {
       "runtime": "nodejs18.x"
     }
   },
