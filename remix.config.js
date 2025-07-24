@@ -2,7 +2,7 @@
 export default {
   ignoredRouteFiles: ["**/.*"],
   server: "./server.js",
-  serverBuildPath: "build/index.js",
+  serverBuildPath: "build/server/index.js",
   serverDependenciesToBundle: "all",
   serverMainFields: ["module", "main"],
   serverMinify: true,
